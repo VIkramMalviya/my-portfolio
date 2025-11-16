@@ -1,1 +1,71 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Make menu row */
+.nav_menu {
+    display: flex;
+    align-items: center;
+}
+
+/* IMPORTANT: position context + inline-block so ::after measures link width */
+.nav_menu a {
+    position: relative;       /* <-- needed for the ::after to align under the link */
+    display: inline-block;    /* gives width for the pseudo-element */
+    margin-left: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    padding: 5px 2px;
+}
+
+/* Hover underline animation */
+.nav_menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;                /* adjust if you want some gap: try bottom: -3px */
+    width: 0%;
+    height: 2px;
+    background: #4285F4;      /* blue underline */
+    transition: width 0.28s ease-in-out;
+}
+
+/* Hover effect: expand underline left -> right */
+.nav_menu a:hover::after {
+    width: 100%;
+}
+
+/* Keep text color unchanged on hover */
+.nav_menu a:hover {
+    color: black;
+}
+
+.nav_name{
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+#resume{
+    color: #18f252;
+}
